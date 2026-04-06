@@ -40,8 +40,7 @@
 - 그러면: Notion의 최신 데이터가 웹 페이지에 표시된다
 
 **세부 요구사항**
-- Notion API는 Vercel Edge Functions를 통해 호출 (API 키 클라이언트 노출 방지)
-- 데이터 캐싱: ISR(Incremental Static Regeneration) 또는 Edge Functions의 캐시 활용
+- Notion API는 .env 파일을 통해 호출 (API 키 클라이언트 노출 방지)
 - Notion API 오류 시 fallback 처리
 
 ### 3.2 뷔폐 메뉴 표시
@@ -152,32 +151,6 @@
 └── 순서 (Number, 정렬용)
 ```
 
-### 5.3 Vercel Edge Functions API 엔드포인트
-
-```
-GET /api/wedding-info
-  → Notion 결혼식 정보 페이지 데이터 반환
-
-GET /api/buffet-menu
-  → Notion 뷔폐 메뉴 데이터베이스 항목 반환
-```
-
-**응답 예시 (`/api/wedding-info`)**
-```json
-{
-  "groomName": "홍길동",
-  "brideName": "김영희",
-  "date": "2026-06-07",
-  "time": "12:00",
-  "venueName": "그랜드 웨딩홀",
-  "venueAddress": "서울시 강남구 테헤란로 123",
-  "groomPhone": "010-1234-5678",
-  "bridePhone": "010-8765-4321",
-  "introduction": "저희 두 사람이 하나가 됩니다...",
-  "galleryImages": ["https://...", "https://..."]
-}
-```
-
 ### 5.4 컴포넌트 구조
 
 ```
@@ -230,7 +203,6 @@ src/
 
 - [ ] 모든 섹션이 모바일(375px)에서 정상 표시
 - [ ] Notion 데이터 변경 시 웹 페이지에 자동 반영
-- [ ] `/api/wedding-info`, `/api/buffet-menu` 엔드포인트 정상 동작
 - [ ] Notion API 키가 클라이언트 코드에 노출되지 않음
 - [ ] Vercel 배포 성공 및 도메인 연결
 - [ ] TypeScript strict 모드 빌드 오류 없음
