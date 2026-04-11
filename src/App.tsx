@@ -2,9 +2,10 @@ import { useState } from 'react'
 import { Header } from '@/components/layout/Header'
 import { HomePage } from '@/pages/HomePage'
 import { ShowcasePage } from '@/pages/ShowcasePage'
+import { WeddingPage } from '@/pages/WeddingPage'
 import { useTheme } from '@/hooks/use-theme'
 
-type Page = 'home' | 'showcase'
+type Page = 'home' | 'showcase' | 'wedding'
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home')
@@ -23,6 +24,7 @@ function App() {
         <HomePage onNavigateToShowcase={() => setCurrentPage('showcase')} />
       )}
       {currentPage === 'showcase' && <ShowcasePage />}
+      {currentPage === 'wedding' && <WeddingPage />}
     </div>
   )
 }

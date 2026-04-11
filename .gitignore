@@ -2,3 +2,5 @@
 node_modules
 dist
 bash.exe.stackdump
+.env
+.vite

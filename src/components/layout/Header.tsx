@@ -1,7 +1,7 @@
-import { SunIcon, MoonIcon, LayoutGridIcon } from 'lucide-react'
+import { SunIcon, MoonIcon, LayoutGridIcon, HeartIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
-type Page = 'home' | 'showcase'
+type Page = 'home' | 'showcase' | 'wedding'
 
 interface HeaderProps {
   currentPage: Page
@@ -41,6 +41,14 @@ export function Header({ currentPage, onNavigate, theme, onToggleTheme }: Header
           >
             <LayoutGridIcon />
             컴포넌트 쇼케이스
+          </Button>
+          <Button
+            variant={currentPage === 'wedding' ? 'secondary' : 'ghost'}
+            size='sm'
+            onClick={() => onNavigate('wedding')}
+          >
+            <HeartIcon />
+            웨딩 청첩장
           </Button>
         </nav>
 
